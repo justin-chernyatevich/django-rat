@@ -1,0 +1,10 @@
+Django==1.10
+
+
+ipdb==0.8
+django_nose
+coverage
+factory-boy==2.4.1
+django-debug-toolbar
+
+gunicorn
