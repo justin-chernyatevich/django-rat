@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block title %}Наш блог{% endblock %}
+
+{% block breadcrubms %}
+  <ol class="breadcrumb">
+    <li class="active">Главная</li>
+  </ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    {% for post in object_list %}
+
+      <h2>{{ post.headline }}</h2>
+
+      <p>{{ post.text | linebreaks }}</p>
+
+    {% empty %}
+      <h3>Нет записей</h3>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

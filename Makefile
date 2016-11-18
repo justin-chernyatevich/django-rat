@@ -2,6 +2,7 @@ PROJECT_DIR=$(shell pwd)
 VENV_DIR?=$(PROJECT_DIR)/.env
 PIP?=$(VENV_DIR)/bin/pip3
 PYTHON?=$(VENV_DIR)/bin/python
+MANAGE?=$(PROJECT_DIR)/manage.py
 NOSE?=$(VENV_DIR)/bin/nosetests
 
 .PHONY: all clean test run requirements install virtualenv
@@ -17,12 +18,9 @@ install: requirements
 requirements:
 	$(PIP) install -r $(PROJECT_DIR)/requirements.txt
 
-loaddata:
-	find src/apps/users -name 'users.json' -exec $(PYTHON) manage.py loaddata {} \;
-	find src/apps/products -name '*.json' -exec $(PYTHON) manage.py loaddata {} \;
 
 create_database:
-	$(PYTHON) manage.py migrate auth
+	$(PYTHON) manage.py migrate
 	$(PYTHON) manage.py migrate --noinput
 
 create_admin:

@@ -15,7 +15,7 @@ import os
 import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(os.path.join(BASE_DIR, 'apps'))
+sys.path.append(os.path.join(BASE_DIR, 'src', 'apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,6 +26,8 @@ SECRET_KEY = 'l-5y((3c4$rkntuab!30-y*aj%^ey*4zzv%w&cw8)jgp_y443l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,8 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'users',
-    'products'
+    'blog'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,9 +52,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'pagination.middleware.PaginationMiddleware',
-    'webstack_django_sorting.middleware.SortingMiddleware',
-
 )
 
 ROOT_URLCONF = 'src.urls'
@@ -62,7 +60,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'src/static/dist/bin'),
+            os.path.join(BASE_DIR, 'src/templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -77,6 +76,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'src.wsgi.application'
+
+
+# Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Internationalization
@@ -103,16 +113,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'src', 'static'),
 )
-
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
