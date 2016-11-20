@@ -47,3 +47,16 @@ body {
 footer {
   margin: 50px 0;
 }
+
+.col-md-12 .date_post {
+  padding: 6px 6px 6px 6px;
+  background: #e1f1f7;
+}
+
+.col-md-12 .date_post em{
+  font-family: Monospaced, serif;
+}
+
+.post-info {
+  border: 1px dashed black;
+}

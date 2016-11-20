@@ -16,7 +16,15 @@
 
       <h2>{{ post.headline }}</h2>
 
+      <hr>
+      <div class="post-info">
+          <em>{{ post.date | date:"l, j E Y г. f;"}} </em><b>|</b>
+          <em>{{ post.author }};</em>
+      </div>
+
       <p>{{ post.text | linebreaks }}</p>
+
+      <!--| truncatewords:20 -->
 
     {% empty %}
       <h3>Нет записей</h3>

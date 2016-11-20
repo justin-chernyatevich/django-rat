@@ -8,7 +8,7 @@ NOSE?=$(VENV_DIR)/bin/nosetests
 .PHONY: all clean test run requirements install virtualenv
 
 
-all: clean virtualenv install test create_database loaddata create_admin collect_static
+all: clean virtualenv install create_database create_admin
 
 virtualenv:
 	virtualenv -p python3.5 $(VENV_DIR) --no-site-packages
