@@ -18,13 +18,18 @@
 
       <hr>
       <div class="post-info">
-          <em>{{ post.date | date:"l, j E Y г. f;"}} </em><b>|</b>
-          <em>{{ post.author }};</em>
+        <div>
+          <div class="expand">
+            <span class="glyphicon glyphicon-menu-right"></span></div>
+          <div class="post-text">
+            <em>{{ post.date | date:"l, j E Y г. f"}} | {{ post.author }}
+          </div>
+        </em>
+        </div>
       </div>
 
-      <p>{{ post.text | linebreaks }}</p>
+      <p class="post-text_2">{{ post.text | linebreaks | truncatewords:20 }}</p>
 
-      <!--| truncatewords:20 -->
 
     {% empty %}
       <h3>Нет записей</h3>

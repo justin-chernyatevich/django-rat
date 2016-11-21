@@ -48,15 +48,14 @@ footer {
   margin: 50px 0;
 }
 
-.col-md-12 .date_post {
-  padding: 6px 6px 6px 6px;
-  background: #e1f1f7;
+.col-md-12 .post-text {
+  margin-left: 30px;
+  padding: 9px 9px 9px 9px;
+  background: #eee;
 }
 
-.col-md-12 .date_post em{
-  font-family: Monospaced, serif;
+.expand {
+  font-weight: bold;
+  font-size: 1.4em;
 }
 
-.post-info {
-  border: 1px dashed black;
-}
