@@ -14,23 +14,21 @@
   <div class="col-md-12">
     {% for post in object_list %}
 
-      <h2>{{ post.headline }}</h2>
-
-      <hr>
+      <h2 class="post_title">{{ post.headline }}</h2>
       <div class="post-info">
         <div>
           <div class="expand">
             <span class="glyphicon glyphicon-menu-right"></span></div>
           <div class="post-text">
-            <em>{{ post.date | date:"l, j E Y г. f"}} | {{ post.author }}
+            <em><b>Добавлено в:</b> {{ post.date | date:"l, d.n.Y г. f"}} <b>от</b> {{ post.author }}</em>
           </div>
-        </em>
         </div>
       </div>
 
-      <p class="post-text_2">{{ post.text | linebreaks | truncatewords:20 }}</p>
-
-
+      <div class="post-text_2">
+      	<p>{{ post.text | linebreaks }}</p>
+	<!-- | truncatewords:20 -->
+      </div>
     {% empty %}
       <h3>Нет записей</h3>
     {% endfor %}
